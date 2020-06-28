@@ -11,18 +11,22 @@ import streamlit as st
 
 # create main
 def main():
+    global file
     st.image('Airbnb-Logo-2.png', width=600)
     st.title('Data Science Project')
     st.write("This is a data science project that you can quickly visualize and "
              "check some analysis from Airbnb data.  \n"
              "Just download any **listings.csv** file, from any region and upload here "
              "to see the magic happens in this app.  \n"
-             #"If you don't want to download any file, there is a default file to "
-             #"check the app running.  \nJust click in run default file in the sidebar.  \n"
+             "If you don't want to download any file, there is a default file to "
+             "check the app running.  \nJust choose option **Default file** in the selectbox.  \n"
              "Link to download files: [Airbnb](http://insideairbnb.com/get-the-data.html)")
     st.subheader('Airbnb Data Analysis')
-
-    file = st.file_uploader('Choose data to analyse(.csv)', type='csv')
+    opt = st.selectbox('Choose option:', ('Upload file', 'Default file'))
+    if opt == 'Default file':
+        file = 'listings.csv'
+    if opt == 'Upload file':
+        file = st.file_uploader('Choose data to analyse(.csv)', type='csv')
 
     if file is not None:
         df = pd.read_csv(file)
