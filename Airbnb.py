@@ -7,7 +7,6 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
-import matplotlib.pyplot as plt
 
 
 # create main
@@ -18,18 +17,12 @@ def main():
              "check some analysis from Airbnb data.  \n"
              "Just download any **listings.csv** file, from any region and upload here "
              "to see the magic happens in this app.  \n"
-             "If you don't want to download any file, there is a default file to "
-             "check the app running.  \nJust click in run default file in the sidebar.  \n"
+             #"If you don't want to download any file, there is a default file to "
+             #"check the app running.  \nJust click in run default file in the sidebar.  \n"
              "Link to download files: [Airbnb](http://insideairbnb.com/get-the-data.html)")
     st.subheader('Airbnb Data Analysis')
 
     file = st.file_uploader('Choose data to analyse(.csv)', type='csv')
-
-    # add button in screen
-    btn_default = st.sidebar.button("Run default file")
-    # check if button was pressed
-    if btn_default:
-        file = 'listings.csv'
 
     if file is not None:
         df = pd.read_csv(file)
@@ -85,9 +78,9 @@ def main():
         st.write("Summary statistic", df.minimum_nights.describe())
 
         st.subheader('Is there anybody who rents the property all year?')
-        if df.minimum_nights.max() >= 364:
+        if df.minimum_nights.max()>=364:
             st.write('Yes, below you can see some of them where **minimum_nights** >= 365.')
-            st.write(df[df.minimum_nights >= 364][['host_name', 'room_type', 'neighbourhood']])
+            st.write(df[df.minimum_nights>=364][['host_name', 'room_type', 'neighbourhood']])
         else:
             st.write('Unfortunately there is no properties renting year round.')
 

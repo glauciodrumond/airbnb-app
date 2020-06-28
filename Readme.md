@@ -8,8 +8,6 @@ visualize and check some analysis from Airbnb data.
 ## How to use
 Just download any **listings.csv** file, from any region 
 and upload in the to see the magic happens.
-If you do not want to download any file, there is a 
-default file to check the app running.
 
 ## Open the app
 The application is running in this location:
