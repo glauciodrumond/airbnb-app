@@ -11,7 +11,7 @@ import streamlit as st
 
 # create main
 def main():
-    global file
+    #global file
     st.image('Airbnb-Logo-2.png', width=600)
     st.title('Data Science Project')
     st.write("This is a data science project that you can quickly visualize and "
