@@ -7,7 +7,7 @@
 
 # Airbnb Data Analysis
 
-![alt text](Airbnb-logo-2.png) 
+![logo](Airbnb-Logo-2.png) 
 
 This is a data science project that you can quickly 
 visualize and check some analysis from Airbnb data.
